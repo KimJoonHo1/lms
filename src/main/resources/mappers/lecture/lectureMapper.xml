@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.care.lms.mybatis.LectureMyBatis">
+	<resultMap type="com.care.lms.dto.LectureDTO" id="lecture">
+		<id property="num" column="num"/>
+		<result property="subjectname" column="subjectname"/>
+		<result property="department" column="department"/>
+		<result property="lectureweek" column="lectureweek"/>
+		<result property="lectureDate" column="lectureDate"/>
+		<result property="lecturemaxperso" column="lecturemaxperso"/>
+		<result property="lectureperso" column="lectureperso"/>
+		<result property="startdate" column="startdate"/>
+		<result property="endDate" column="endDate"/>
+	</resultMap>
+	<insert id="lectureInsert">
+		insert into LMS_LECTURE values(lms_lecture_seq.nextval, #{subjectname}, #{department}, #{lectureweek}, #{lectureDate},
+		#{lecturemaxperso}, #{lectureperso}, #{startdate}, #{endDate})
+	</insert>
+	
+	<select id="lectureList" resultMap="lecture">
+		select * from LMS_LECTURE ORDER BY num ASC
+	</select>
+	
+	<select id="lectureInfo" resultMap="lecture">
+		select * from LMS_LECTURE where num=#{num}
+	</select>
+	<update id="lectureUpdate">
+		update LMS_LECTURE set lecturemaxperso=#{lecturemaxperso}, lectureweek=#{lectureweek}, lectureDate=#{lectureDate}, startdate=#{startdate}, endDate=#{endDate} where num=#{num}
+	</update>
+	<delete id="lectureDelete">
+		delete from LMS_LECTURE where num=#{num}
+	</delete>
+</mapper>

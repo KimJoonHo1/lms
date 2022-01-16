@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.care.lms.mybatis.SubjectMyBatis">
+	<resultMap type="com.care.lms.dto.SubjectDTO" id="subject">
+		<id property="num" column="num"/>
+		<result property="name" column="name"/>
+		<result property="department" column="department"/>
+		<result property="score" column="score"/>
+		<result property="lectureTime" column="lectureTime"/>
+		<result property="content" column="content"/>
+	</resultMap>
+	<insert id="subjectInsert">
+		insert into LMS_SUBJECT values(LMS_SUBJECT_seq.nextval, #{name}, #{department}, #{score}, #{lectureTime}, #{content})
+	</insert>
+	<select id="subjectList" resultMap="subject">
+		select * from LMS_SUBJECT ORDER BY num ASC
+	</select>
+	<select id="subjectInfo" resultMap="subject">
+		select * from LMS_SUBJECT where num=#{num}
+	</select>
+	<select id="subjectInfo2" resultMap="subject">
+		select * from LMS_SUBJECT where name=#{name}
+	</select>
+	<update id="subjectUpdate">
+		update LMS_SUBJECT set name=#{name}, department=#{department}, score=#{score}, lectureTime=#{lectureTime}, content=#{content} where num=#{num}
+	</update>
+	<delete id="subjectDelete">
+		delete from LMS_SUBJECT where num=#{num}
+	</delete>
+	
+</mapper>

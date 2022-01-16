@@ -1,0 +1,207 @@
+a {
+	text-decoration: none;
+}
+button:hover {
+	cursor: pointer;
+}
+/*------------------------ login.jsp --------------------------- */
+.login-wrap {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	-moz-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	-o-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	height: 150px;
+}
+
+#login-form {
+	display: flex;
+}
+
+.login-input-box {
+	display: grid;
+	height: 145px;
+}
+
+.login-input-box>input {
+	width: 300px;
+	height: 40px;
+	border: 1px solid gray;
+	border-radius: 8px;
+	font-size: 18px;
+	color:gray;
+}
+
+.login-input-box>input:last-child {
+	margin-top: 10px;
+}
+
+.login-btn-box {
+	margin-left: 20px;
+}
+
+#login-btn {
+	width: 100px;
+	height: 102px;
+	border: 1px solid gray;
+	border-radius: 14px;
+	background-color: #fff;
+	color: gray;
+	font-size: 17px;
+	font-weight: bold;
+}
+
+#login-btn:hover {
+	cursor: pointer;
+}
+
+.login-option {
+	font-size: 12px;
+	color: gray;
+}
+
+.ml-15 {
+	margin-left: 15px;
+}
+
+.login-comment {
+	color: green;
+	font-size: 20px;
+	margin-bottom: 20px;
+	font-weight: bold;
+}
+.login-input-comment {
+	font-weight: bold;
+	color: red;
+	visibility: hidden;
+}
+
+/* ---------------------- join.jsp ----------------------------- */
+.join-wrap {
+	display: flex;
+	justify-content: center;
+}
+
+.option-box {
+	height: 150px;
+	overflow: auto;
+	padding-left: 10px;
+	padding-top: 5px;
+}
+
+.join-header {
+	text-align: center;
+	font-size: 24px;
+	color: gray;
+	border-bottom: 2px solid green;
+	padding-bottom: 10px;
+	margin-top: 50px;
+}
+
+.join-box {
+	width: 1000px;
+}
+
+.mt-25 {
+	margin-top: 25px;
+}
+
+.fs-18 {
+	font-size: 18px;
+}
+
+.join-body {
+	border: 2px solid green;
+	border-radius: 10px;
+	padding: 0px 0 10px 0;
+}
+
+.join-body-check {
+	width: 16px;
+	height: 16px;
+}
+
+.join-body-title {
+	padding-left: 10px;
+	border-bottom: 1px solid gray;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+.join-footer {
+	display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+.join-footer>button {
+	width: 85px;
+	height: 39px;
+	border: 1px solid silver;
+	font-size: 15px;
+	background-color: #fff;
+	margin: 0 10px;
+	font-weight: bold;
+}
+.join-footer>button:hover {
+	cursor: pointer;
+}
+
+.member-comment {
+	visibility: hidden;
+	color: red;
+	font-weight: bold;
+}
+.member-input-box {
+	display: flex;
+	align-items: center;
+	margin: 10px 0;
+}
+.member-input-flex {
+	display: flex;
+	align-items: center;
+}
+.member-input-comment {
+	font-size: 18px;
+    font-weight: bold;
+    color: gray;
+    width: 180px;
+}
+.member-input>input {
+	width: 250px;
+    height: 25px;
+    font-size: 18px;
+    color: gray;
+    font-weight: bold;
+}
+.member-input-check>button {
+	width: 120px;
+    height: 31px;
+    font-size: 13px;
+    font-weight: bold;
+    color: #E6E6E6;
+    background-color: #088A68;
+    border: 1px solid gray;
+    border-radius: 5px;
+    margin-left: 30%;
+}
+.member-body {
+	margin-top: 20px;
+	display: flex;
+    justify-content: center;
+}
+.member-input>select {
+	width: 258px;
+    height: 31px;
+    font-size: 18px;
+    color: gray;
+    font-weight: bold;
+}
+select:hover {
+	cursor: pointer;
+}
+option:hover {
+	cursor: pointer;
+}

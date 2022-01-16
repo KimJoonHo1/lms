@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.care.lms.mybatis.MemberMyBatis">
+	<resultMap type="com.care.lms.member.MemberDTO" id="member">
+		<id property="id" column="id"/>
+		<result property="pwd" column="pwd"/>
+		<result property="name" column="name"/>
+		<result property="department" column="department"/>
+		<result property="email" column="email"/>
+		<result property="status" column="status"/>
+	</resultMap>
+	<select id="idcheck" resultMap="member">
+		select * from LMS_USER WHERE id=#{id}
+	</select>
+	<select id="emailCheck" resultMap="member">
+		select * from LMS_USER WHERE email=#{email}
+	</select>
+	<insert id="membership">
+		insert into LMS_USER values(#{id}, #{pwd}, #{name}, #{department}, #{email}, #{status})
+	</insert>
+	<select id="loginCheck" resultMap="member">
+		select * from LMS_USER WHERE id=#{id} AND pwd=#{pwd}
+	</select>
+	<select id="selectAllUser" resultMap="member">
+		select * from LMS_USER WHERE status='1' AND id like '%' || #{search} || '%'
+	</select>
+	<select id="selectNewUser" resultMap="member">
+		select * from LMS_USER WHERE status='0' AND id like '%' || #{search} || '%'
+	</select>
+	<update id="approvalUser">
+		update LMS_USER set status = '1' where id = #{id}
+	</update>
+</mapper>
