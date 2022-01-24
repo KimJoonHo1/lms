@@ -14,10 +14,12 @@ import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
 import com.care.lms.dto.LectureDTO;
+import com.care.lms.dto.NoticeDTO;
 import com.care.lms.dto.SubjectDTO;
 import com.care.lms.member.MemberDTO;
 import com.care.lms.mybatis.LectureMyBatis;
 import com.care.lms.mybatis.MemberMyBatis;
+import com.care.lms.mybatis.NoticeMyBatis;
 import com.care.lms.mybatis.SubjectMyBatis;
 
 @Service
@@ -30,6 +32,9 @@ public class ManagerService {
 	
 	@Autowired
 	LectureMyBatis lectureMapper;
+	
+	@Autowired
+	NoticeMyBatis noticeMapper;
 	
 	public void selectAllUser(Model model, String search) {
 		ArrayList<MemberDTO> list = memberMapper.selectAllUser(search);
@@ -294,5 +299,58 @@ public class ManagerService {
 	public int lectureDelete(HttpServletRequest req) {
 		int num = Integer.parseInt(req.getParameter("num"));
 		return lectureMapper.lectureDelete(num);
+	}
+	
+	public int noticeInsert(HttpServletRequest req) {
+		NoticeDTO dto = new NoticeDTO();
+		dto.setTitle(req.getParameter("title"));
+		dto.setContent(req.getParameter("content"));
+		return noticeMapper.noticeInsert(dto);
+	}
+	
+	public void noticeList(HttpServletRequest req, Model model) {
+		String search = req.getParameter("search");
+		int pageSize = 10;
+		if(search == null) {
+			search = "";
+		}
+		String currentPage = req.getParameter("currentPage");
+		if(currentPage == null) {
+			currentPage = "1";
+		}
+		int pageNum = Integer.parseInt(currentPage);
+		int count = noticeMapper.noticeCount(search);
+		int startRow = (pageNum - 1) * pageSize + 1;
+		int endRow = pageNum * pageSize;
+		
+		model.addAttribute("list", noticeMapper.noticelist(startRow, endRow, search));
+		model.addAttribute("count", count);
+		model.addAttribute("pageNum", pageNum);
+		model.addAttribute("search", search);
+	}
+	
+	public void noticeInfo(HttpServletRequest req, Model model) {
+		String numstr = req.getParameter("num");
+		int num = Integer.parseInt(numstr);
+		model.addAttribute("dto", noticeMapper.noticeInfo(num));
+	}
+	
+	public int noticeUpdate(HttpServletRequest req) {
+		NoticeDTO dto = new NoticeDTO();
+		String numstr = req.getParameter("num");
+		int num = Integer.parseInt(numstr);
+		String title = req.getParameter("title");
+		String content = req.getParameter("content");
+		
+		dto.setNum(num);
+		dto.setTitle(title);
+		dto.setContent(content);
+		return noticeMapper.noticeUpdate(dto);
+	}
+	
+	public int noticeDelete(HttpServletRequest req) {
+		String numstr = req.getParameter("num");
+		int num = Integer.parseInt(numstr);
+		return noticeMapper.noticeDelete(num);
 	}
 }

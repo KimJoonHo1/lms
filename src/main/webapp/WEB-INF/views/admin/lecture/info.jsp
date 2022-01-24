@@ -1,3 +1,4 @@
+<%@page import="java.util.Date"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="com.care.lms.dto.LectureDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -30,7 +31,7 @@
 					<li><a href="subjectlist">과목관리</a></li>
 					<li><a href="#" id="menu-check">강의관리</a></li>
 					<li><a href="#">시험관리</a></li>
-					<li><a href="#">공지사항</a></li>
+					<li><a href="noticelist">공지사항</a></li>
 				</ul>
 			</div>
 			<div class="admin-body">
@@ -65,7 +66,11 @@
 						<div class="admin-sub-info-btn-box">
 							<button type="button" class="admin-sub-info-btn" onclick="location.href='lecturelist'">돌아가기</button>
 							<button type="button" class="admin-sub-info-btn" style="width: 60px;" onclick="location.href='lectureupdate?num=${dto.num}'">수정</button>
-							<% if(dto.getLectureperso() == 0) {
+							<% 
+								String startDateStr = sdf.format(new Date(dto.getStartdate().getTime()));
+								Date startDate = sdf.parse(startDateStr);
+								Date sys = new Date();
+								if((dto.getLectureperso() == 0 && (sys.after(startDate) || sys.equals(startDate))) || sys.before(startDate)) {
 							%>
 							<form action="lecturedelete" method="post" id="lecture-delete">
 								<input type="hidden" name="num" value="<%=dto.getNum() %>"/>

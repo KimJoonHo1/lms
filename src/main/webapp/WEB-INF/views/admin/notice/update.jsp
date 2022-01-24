@@ -31,25 +31,27 @@
 			<div class="admin-body">
 				<div class="admin-body-title">
 					<ul>
-						<li class="admin-body-title-non-check"><a href="noticelist" class="admin-body-title-non-ckeck-a">공지리스트</a></li>
-						<li class="admin-body-title-check">공지작성</li>
+						<li class="admin-body-title-check">공지리스트</li>
+						<li class="admin-body-title-non-check"><a href="noticelist" class="admin-body-title-non-ckeck-a">공지작성</a></li>
 					</ul>
 				</div>
 				<div class="admin-body-main-box">
 					<div class="admin-body-main-title">
-						<span class="admin-body-main-head">공지작성</span>
+						<span class="admin-body-main-head">공지수정</span>
 					</div>
 					<div class="admin-sub-body">
-						<form action="noticeinsert-1" method="post" id="subject-insert-form">
+						<form action="noticeupdate-1" method="post" id="subject-insert-form">
+						<input type="hidden" name="num" value="${dto.num }"/>
 						<div>
-							<input type="text" name="title" id="notice-title"/>
+							<input type="text" name="title" id="notice-title" value="${dto.title }"/>
 						</div>
 						<div class="content-box">
-							<textarea name="content" id="summernote" class="summernote"></textarea>
+							<textarea name="content" id="summernote" class="summernote">${dto.content }</textarea>
 						</div>
 						<div>
 							<div style="float: right;">
-								<button type="button" class="sub-insert-btn" onclick="noticeinsert();">등록</button>
+								<button type="button" class="sub-insert-btn" onclick="location.href='noticeinfo?num=${dto.num}'">돌아가기</button>
+								<button type="button" class="sub-insert-btn" onclick="noticeinsert();">수정</button>
 							</div>
 						</div>
 						</form>

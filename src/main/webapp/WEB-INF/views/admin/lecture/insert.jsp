@@ -24,13 +24,13 @@
 					<li><a href="subjectlist">과목관리</a></li>
 					<li><a href="#" id="menu-check">강의관리</a></li>
 					<li><a href="#">시험관리</a></li>
-					<li><a href="#">공지사항</a></li>
+					<li><a href="noticelist">공지사항</a></li>
 				</ul>
 			</div>
 			<div class="admin-body">
 				<div class="admin-body-title">
 					<ul>
-						<li class="admin-body-title-non-check"><a href="subjectlist" class="admin-body-title-non-ckeck-a">강의리스트</a></li>
+						<li class="admin-body-title-non-check"><a href="lecturelist" class="admin-body-title-non-ckeck-a">강의리스트</a></li>
 						<li class="admin-body-title-check">강의개설</li>
 					</ul>
 				</div>

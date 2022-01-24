@@ -128,7 +128,7 @@ public class ManagerController {
 		if(result == 0) {
 			out.print("<script>alert('문제가 발생했습니다.');location.href='lectureinsert';</script>");
 		} else {
-			out.print("<script>alert('강의가 개설되었습니다.');location.href='lectureinsert';</script>");
+			out.print("<script>alert('강의가 개설되었습니다.');location.href='lecturelist';</script>");
 		}
 	}
 	
@@ -212,6 +212,58 @@ public class ManagerController {
 	public void noticeInsertCode(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		resp.setContentType("text/html; charset=utf-8");
 		PrintWriter out = resp.getWriter();
+		int result = service.noticeInsert(req);
+		if(result == 0) {
+			out.print("<script>alert('문제가 발생했습니다.');location.href='noticelist';</script>");
+		} else {
+			out.print("<script>alert('공지가 작성되었습니다.');location.href='noticelist';</script>");
+		}
 	}
-		
+	
+	@RequestMapping(value="admin/noticelist")
+	public String noticeList(HttpServletRequest req, Model model) {
+		service.noticeList(req, model);
+		return "admin/notice/list";
+	}
+	
+	@RequestMapping(value="admin/noticeinfo")
+	public String noticeInfo(HttpServletRequest req, Model model) {
+		service.noticeInfo(req, model);
+		return "admin/notice/info";
+	}
+	
+	@RequestMapping(value="admin/noticeupdate")
+	public String noticeUpdate(HttpServletRequest req, Model model, HttpServletResponse resp) throws IOException {
+		resp.setContentType("text/html; charset=utf-8");
+		PrintWriter out = resp.getWriter();
+		service.noticeInfo(req, model);
+		if(model.getAttribute("dto") == null) {
+			out.print("<script>alert('잘못된 접근입니다.');location.href='noticelist'</script>");
+			return null;
+		}
+		return "admin/notice/update";
+	}
+	
+	@RequestMapping(value="admin/noticeupdate-1", method=RequestMethod.POST)
+	public void noticeUpdateCode(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+		resp.setContentType("text/html; charset=utf-8");
+		PrintWriter out = resp.getWriter();
+		int result = service.noticeUpdate(req);
+		if(result == 0) {
+			out.print("<script>alert('문제가 발생했습니다.');location.href='noticelist';</script>");
+		} else {
+			out.print("<script>alert('공지가 수정되었습니다.');location.href='noticelist';</script>");
+		}
+	}
+	@RequestMapping(value="admin/noticeinfo-2")
+	public void noticeDelete(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+		resp.setContentType("text/html; charset=utf-8");
+		PrintWriter out = resp.getWriter();
+		int result = service.noticeDelete(req);
+		if(result == 0) {
+			out.print("<script>alert('문제가 발생했습니다.');location.href='noticelist';</script>");
+		} else {
+			out.print("<script>alert('공지가 삭제되었습니다.');location.href='noticelist';</script>");
+		}
+	}
 }

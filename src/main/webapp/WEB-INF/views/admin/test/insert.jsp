@@ -29,9 +29,9 @@
 				<ul class="menu">
 					<li><a href="userlist">회원관리</a></li>
 					<li><a href="subjectlist">과목관리</a></li>
-					<li><a href="lecturelist" id="menu-check">강의관리</a></li>
-					<li><a href="#">시험관리</a></li>
-					<li><a href="#">공지사항</a></li>
+					<li><a href="lecturelist">강의관리</a></li>
+					<li><a href="#" id="menu-check">시험관리</a></li>
+					<li><a href="noticelist">공지사항</a></li>
 				</ul>
 			</div>
 			<div class="admin-body">
@@ -44,7 +44,7 @@
 				</div>
 				<div class="admin-body-main-box">
 					<div class="admin-body-main-title">
-						<span class="admin-body-main-head">시첨출제</span>
+						<span class="admin-body-main-head">시험출제</span>
 					</div>
 					<div class="admin-sub-body">
 						<form action="testinsert-1" method="post" id="subject-insert-form">

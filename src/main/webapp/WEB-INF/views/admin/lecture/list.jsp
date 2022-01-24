@@ -31,7 +31,7 @@
 					<li><a href="subjectlist">과목관리</a></li>
 					<li><a href="#" id="menu-check">강의관리</a></li>
 					<li><a href="#">시험관리</a></li>
-					<li><a href="#">공지사항</a></li>
+					<li><a href="noticelist">공지사항</a></li>
 				</ul>
 			</div>
 			<div class="admin-body">

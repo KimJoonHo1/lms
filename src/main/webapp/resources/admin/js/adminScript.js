@@ -3,6 +3,11 @@ var blank_pattern1 = /^\s+|\s+$/g; // 공백만 있을 경우
 
 function listSearch() {
 	var search = document.getElementById("list-search").value.replace(blank_pattern1, '');
+	if(search != "") {
+		search = document.getElementById("list-search").value;
+	} else {
+		search = "";
+	}
 	$("#list-search").val(search);
 	document.getElementById("list-form").submit();
 }
@@ -11,6 +16,11 @@ function listSearch() {
 /* ------------------------ newUserList.jsp ----------------------*/
 function newListSearch() {
 	var search = document.getElementById("new-list-search").value.replace(blank_pattern1, '');
+	if(search != "") {
+		search = document.getElementById("new-list-search").value;
+	} else {
+		search = "";
+	}
 	$("#new-list-search").val(search);
 	document.getElementById("new-list-form").submit();
 }
@@ -843,8 +853,11 @@ function noticeinsert() {
 	}
 	
 	document.getElementById("subject-insert-form").submit();
-	
-	
-	
-	
+
+}
+
+function noticeDelete() {
+	if (confirm("정말로 삭제하시겠습니까?")) {
+		location.href = "noticeinfo-2?num=" + document.getElementById("delete-num").value;
+	}
 }

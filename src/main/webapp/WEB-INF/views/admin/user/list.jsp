@@ -23,8 +23,8 @@
 					<li><a href="#" id="menu-check">회원관리</a></li>
 					<li><a href="subjectlist">과목관리</a></li>
 					<li><a href="lecturelist">강의관리</a></li>
-					<li><a href="lecturelist">시험관리</a></li>
-					<li><a href="lecturelist">공지사항</a></li>
+					<li><a href="#">시험관리</a></li>
+					<li><a href="noticelist">공지사항</a></li>
 				</ul>
 			</div>
 			<div class="admin-body">

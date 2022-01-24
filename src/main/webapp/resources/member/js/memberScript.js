@@ -36,8 +36,8 @@ function idCheck() {
 			return;
 		}
 		
-		if(document.getElementById("id").value.length > 12 || 4 > document.getElementById("id").value.length) {
-			document.getElementById("id-comment").innerText = "아이디는 4~12글자 사이로 입력해 주세요.";
+		if(document.getElementById("id").value.length > 8 || 4 > document.getElementById("id").value.length) {
+			document.getElementById("id-comment").innerText = "아이디는 4~8글자 사이로 입력해 주세요.";
 			$("#id-comment").css("visibility", "visible");
 			document.getElementById("id").focus();
 			return;
@@ -248,6 +248,7 @@ function login() {
 				alert("가입 승인까지 기달려주세요 !");
 			} else if(map.login == 2) {
 				alert("로그인 되었습니다.");
+				location.href="user/home";
 			}else if(map.login == 3) {
 				alert("관리가 계정 로그인입니다.");
 				location.href="admin/userlist";

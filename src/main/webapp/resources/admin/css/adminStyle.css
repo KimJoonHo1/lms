@@ -151,10 +151,16 @@ ul {
 	border-bottom: 2px solid black;
     padding: 10px 0;
 }
+.admin-body-table-header>li:first-child {
+	text-align: center;
+}
 .admin-body-table-body {
 	display: flex;
 	border-bottom: 2px solid black;
     padding: 10px 0;
+}
+.admin-body-table-body>li:first-child {
+	text-align: center;
 }
 .admin-body-table-body:hover {
 	background-color: antiquewhite;
@@ -326,7 +332,35 @@ ul {
 .content-box {
 	margin-top: 30px;
 }
+.content-box ol {
+	margin-left: 20px;
+}
+.content-box ul {
+	list-style: unset;
+	margin-left: 20px;
+}
 #summernote {
 	width: 100%;
     resize: none;
+}
+
+/* ----------------------- notice-list.jsp -------------------- */
+.notice-list-title {
+	overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; 
+}
+.admin-notice-info-content-body {
+	width: 100%;
+    min-height: 350px;
+    font-size: 18px;
+    border-bottom: 1px solid green;
+    padding-bottom: 20px;
+}
+.admin-notice-info-content-body ul {
+	list-style: unset;
+	margin-left: 20px;
+}
+.admin-notice-info-content-body ol {
+	margin-left: 20px;
 }
